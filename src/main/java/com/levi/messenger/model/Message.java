@@ -1,8 +1,11 @@
 package com.levi.messenger.model;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 @XmlRootElement
 public class Message
@@ -11,6 +14,8 @@ public class Message
 	private String my_message;
 	private String my_author;
 	private Date my_creation_date;
+	
+	private Map<Long, Comment> my_comments = new HashMap<Long, Comment>();
 	
 	public Message (){}
 	
@@ -61,6 +66,17 @@ public class Message
 	public void setCreationDate (final Date the_creation_date)
 	{
 		my_creation_date = the_creation_date;
+	}
+	
+	@XmlTransient
+	public Map<Long, Comment> getComments ()
+	{
+		return my_comments;
+	}
+	
+	public void setComments (final Map<Long, Comment> the_comments)
+	{
+		my_comments = the_comments;
 	}
 	
 	@Override

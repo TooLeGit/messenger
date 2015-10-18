@@ -57,4 +57,10 @@ public class MessageResource
 	{
 		return my_service.createMessage(the_message);
 	}
+	
+	@Path("/{messageId}/comments/")
+	public CommentResource getCommentResource ()
+	{
+		return new CommentResource();
+	}
 }
