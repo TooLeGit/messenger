@@ -35,11 +35,13 @@ public class CommentService
 	public List<Comment> getAllComments (final Long the_message_id)
 	{
 		return new ArrayList<Comment>(my_messages.get(the_message_id).getComments().values());
+		//return new ArrayList<Comment>(DatabaseClass.getComments(the_message_id).values());
 	}
 	
 	public Comment getComment (final Long the_message_id, final Long the_comment_id)
 	{
 		return my_messages.get(the_message_id).getComments().get(the_comment_id);
+		//return DatabaseClass.getComments(the_message_id).get(the_comment_id);
 	}
 	
 	public Comment createComment (final Long the_message_id, Comment the_comment)
@@ -62,6 +64,7 @@ public class CommentService
 	
 	public Comment deleteComment (final Long the_message_id, final Long the_comment_id)
 	{
+		//return DatabaseClass.getComments(the_message_id).remove(the_comment_id);
 		return my_messages.get(the_message_id).getComments().remove(the_comment_id);
 	}
 }

@@ -3,6 +3,7 @@ package com.levi.messenger.database;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.levi.messenger.model.Comment;
 import com.levi.messenger.model.Message;
 import com.levi.messenger.model.Profile;
 
@@ -19,5 +20,10 @@ public class DatabaseClass
 	public static Map<Long, Profile> getProfiles()
 	{
 		return my_profiles;
+	}
+	
+	public static Map<Long, Comment> getComments (final Long the_message_id)
+	{
+		return my_messages.get(the_message_id).getComments();
 	}
 }
